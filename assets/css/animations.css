@@ -1,0 +1,121 @@
+/* =============================================================
+   PharmaTrack — Reusable Animations
+   ============================================================= */
+
+/* Fade in up — staggered children */
+.anim-fade-in {
+  animation: fadeInUp 0.45s var(--ease-out) both;
+}
+.anim-stagger > * {
+  animation: fadeInUp 0.45s var(--ease-out) both;
+}
+.anim-stagger > *:nth-child(1)  { animation-delay: 0.00s; }
+.anim-stagger > *:nth-child(2)  { animation-delay: 0.05s; }
+.anim-stagger > *:nth-child(3)  { animation-delay: 0.10s; }
+.anim-stagger > *:nth-child(4)  { animation-delay: 0.15s; }
+.anim-stagger > *:nth-child(5)  { animation-delay: 0.20s; }
+.anim-stagger > *:nth-child(6)  { animation-delay: 0.25s; }
+.anim-stagger > *:nth-child(7)  { animation-delay: 0.30s; }
+.anim-stagger > *:nth-child(8)  { animation-delay: 0.35s; }
+.anim-stagger > *:nth-child(9)  { animation-delay: 0.40s; }
+.anim-stagger > *:nth-child(10) { animation-delay: 0.45s; }
+
+/* Slide in from left */
+.anim-slide-left {
+  animation: slideInLeft 0.4s var(--ease-out) both;
+}
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from right */
+.anim-slide-right {
+  animation: slideInRight 0.4s var(--ease-out) both;
+}
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale in */
+.anim-scale {
+  animation: scaleIn 0.3s var(--ease-out) both;
+}
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Shimmer loading placeholder */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(14, 92, 82, 0.06) 25%,
+    rgba(14, 92, 82, 0.12) 50%,
+    rgba(14, 92, 82, 0.06) 75%
+  );
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: var(--radius-sm);
+}
+.skeleton-text {
+  height: 14px;
+  margin-bottom: 8px;
+  width: 80%;
+}
+.skeleton-text.short { width: 50%; }
+.skeleton-title {
+  height: 20px;
+  width: 60%;
+  margin-bottom: 12px;
+}
+.skeleton-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+}
+
+/* Bounce subtle */
+.anim-bounce {
+  animation: bounceSubtle 0.6s var(--ease-out);
+}
+@keyframes bounceSubtle {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-6px); }
+  50%  { transform: translateY(0); }
+  70%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
+
+/* Number counter (used with JS) */
+.count-up {
+  transition: all 0.8s var(--ease-out);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
